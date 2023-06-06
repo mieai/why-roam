@@ -1,14 +1,12 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { RouterView } from "vue-router";
+import TabBar from "./components/tabbar/TabBar.vue";
 </script>
 
 <template>
   <RouterView />
 
-  <router-link to="/">首页</router-link>
-  <router-link to="/favor">收藏</router-link>
-  <router-link to="/order">订单</router-link>
-  <router-link to="/message">消息</router-link>
+  <TabBar />
 </template>
 
 <style scoped></style>
