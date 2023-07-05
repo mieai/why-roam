@@ -13,25 +13,27 @@ const router = createRouter({
       path: '/favor',
       name: 'favor',
       // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
+      // this generates a separate chunk (FavorPage.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/favor/FavorPage.vue')
     },
     {
       path: '/order',
       name: 'order',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/order/OrderPage.vue')
     },
     {
       path: '/message',
       name: 'message',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/message/MessagePage.vue')
+    },
+    {
+      path: '/city',
+      name: 'city',
+      component: () => import('../views/city/CityPage.vue'),
+      meta:{
+        hideTabbar:true
+      }
     }
   ]
 })
