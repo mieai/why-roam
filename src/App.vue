@@ -5,8 +5,6 @@ import TabBar from "./components/tabbar/TabBar.vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
-
-
 </script>
 
 <template>

@@ -8,7 +8,7 @@
     />
 
     <van-tabs v-model:active="activeName" color="#fc7b5b">
-      <template v-for="(value,key) in allCities.data" :key="key">
+      <template v-for="(value, key) in allCities.data" :key="key">
         <van-tab :name="key" :title="value.title">
           <div class="content">
             <CityGorup :citiesGroup="value"></CityGorup>
@@ -20,49 +20,41 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { storeToRefs } from 'pinia';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { storeToRefs } from "pinia";
 
-import useCityStore from '@/stores/city';
+import useCityStore from "@/stores/city";
 
-import CityGorup from './compoents/CityGorup.vue';
+import CityGorup from "./compoents/CityGorup.vue";
 
-
-const router = useRouter()
+const router = useRouter();
 const cityStore = useCityStore();
 
-const searchValue = ref('');
+const searchValue = ref("");
 const activeName = ref();
 
-
-
-const onCancel = ()=>{
+const onCancel = () => {
   router.back();
-}
-
+};
 
 cityStore.getCitiesAction();
 
 const { allCities } = storeToRefs(cityStore);
-
-
-
 </script>
 
 <style lang="less" scoped>
+:deep(.van-index-anchor--sticky) {
+  top: -1px !important;
+}
 
-  :deep(.van-index-anchor--sticky){
-    top:-1px !important;
-  }
+:deep(.van-tabs__wrap) {
+  position: relative;
+  z-index: 120;
+}
 
-  :deep(.van-tabs__wrap){
-    position: relative;
-    z-index: 120;
-  }
-
-  .content{
-    overflow: auto;
-    height: calc(100vh - 100px);
-  }
+.content {
+  overflow: auto;
+  height: calc(100vh - 100px);
+}
 </style>

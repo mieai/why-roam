@@ -1,5 +1,4 @@
-import T from '../request/core';
+import T from "../request/core";
 
 // 获取所有城市
-export const getAllCity = ()=> T.get('/city/all');
-
+export const getAllCity = () => T.get("/city/all");

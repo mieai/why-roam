@@ -3,7 +3,7 @@
     <van-tabbar v-model="activeIndex" active-color="#fc7b5b">
       <template v-for="(item, index) in tabbarConfig" :key="index">
         <van-tabbar-item :to="item.path">
-          <template #icon="{active}">
+          <template #icon="{ active }">
             <img
               class="icon"
               :src="assetsImage(active ? item.activeIcon : item.icon)"
@@ -14,7 +14,6 @@
         </van-tabbar-item>
       </template>
     </van-tabbar>
-   
   </div>
 </template>
 
@@ -26,8 +25,6 @@ import tabbarConfig from "./tabbar-config";
 import assetsImage from "@/utils/assetsImage.js";
 
 const activeIndex = ref(0);
-
-
 </script>
 
 <style lang="less" scoped>
@@ -39,8 +36,8 @@ const activeIndex = ref(0);
   }
 
   .text {
-      font-size: 14px;
-      margin-top: 3px;
+    font-size: 14px;
+    margin-top: 3px;
   }
 }
 </style>

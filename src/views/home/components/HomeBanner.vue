@@ -1,28 +1,26 @@
 <template>
-    <div class="banner">
-      <van-swipe autoplay="1500" style="height: 180px;">
-        <template v-for="i in 5" :key="i">
-          <van-swipe-item >
-            <img :src="assetsImage(`/home/banner${i}.webp`)" alt="">
-          </van-swipe-item>
-        </template>
+  <div class="banner">
+    <van-swipe autoplay="1500" style="height: 180px">
+      <template v-for="i in 5" :key="i">
+        <van-swipe-item>
+          <img :src="assetsImage(`/home/banner${i}.webp`)" alt="" />
+        </van-swipe-item>
+      </template>
 
-        <template #indicator="{ active, total }">
-          <div class="custom-indicator">{{ active + 1 }}/{{ total }}</div>
-        </template>
+      <template #indicator="{ active, total }">
+        <div class="custom-indicator">{{ active + 1 }}/{{ total }}</div>
+      </template>
     </van-swipe>
-    </div>
+  </div>
 </template>
 
 <script setup>
-import assetsImage from '@/utils/assetsImage';
-
+import assetsImage from "@/utils/assetsImage";
 </script>
 
 <style lang="less" scoped>
-
-.banner{
-  img{
+.banner {
+  img {
     width: 100%;
     object-fit: cover;
     height: 100%;
@@ -38,6 +36,4 @@ import assetsImage from '@/utils/assetsImage';
     background: rgba(0, 0, 0, 0.1);
   }
 }
-
- 
 </style>
