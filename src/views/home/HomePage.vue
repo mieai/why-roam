@@ -1,23 +1,20 @@
 <template>
   <div>
-    <HomeNavbar></HomeNavbar>
-    <div class="banner">
-      <img src="@/assets/img/home/banner.webp" alt="">
-    </div>
-    <LocationArea />
-   
+    <!-- 头部导航栏 -->
+    <HomeNavbar/>
+    <!-- 首页轮播 -->
+    <HomeBanner />
+
+    <HomeEntryBroad />
   </div>
 </template>
 
 <script setup>
 import HomeNavbar from './components/HomeNavbar.vue';
-import LocationArea from './components/LocationArea.vue';
+import HomeBanner from './components/HomeBanner.vue';
+import HomeEntryBroad from './components/HomeEntryBoard.vue';
+
 </script>
 
 <style lang="less" scoped>
-.banner{
-  img{
-    width: 100%;
-  }
-}
 </style>

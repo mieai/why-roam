@@ -4,7 +4,8 @@ import { getAllCity } from "../service/city/city";
 const useCityStore  = defineStore('city',{
   state(){
     return {
-      allCities:{}
+      allCities:{},
+      currentCity:{}
     }
   },
   actions:{

@@ -4,7 +4,7 @@
 
     <div class="list">
       <template v-for="city in citiesGroup.hotCities" :key="city.cityId">
-            <div class="list-item">{{ city.cityName }}</div>
+          <div class="list-item" @click="changeCity(city)">{{ city.cityName }}</div>
       </template>
     </div>
 
@@ -13,7 +13,7 @@
       <van-index-anchor :index="item.group" />
 
       <template v-for="city in item.cities" :key="city.cityId">
-        <van-cell :title="city.cityName" />
+        <van-cell @click="changeCity(city)" :title="city.cityName" />
       </template>
     </template>
   </van-index-bar>
@@ -21,11 +21,26 @@
 
 <script setup>
   import { computed } from 'vue';
+  import { useRouter } from 'vue-router';
+
+  import useCityStore from '@/stores/city';
+
+  const router = useRouter();
+
+
 
   const props = defineProps({
     citiesGroup:Object
   })
 
+  const cityStore = useCityStore();
+
+
+  const changeCity = (city)=>{
+    cityStore.currentCity = city;
+    console.log(cityStore.currentCity);
+    router.back();
+  }
 
   const indexList = computed(()=>{
     let list = props.citiesGroup.cities.map(city=>city.group);
