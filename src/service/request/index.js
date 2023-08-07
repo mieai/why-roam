@@ -7,6 +7,11 @@ class TRequest {
       baseURL: BASE_URL,
       timeout: TIME_OUT,
     });
+
+    this._instance.interceptors.response.use((response) => {
+      return response.data;
+    })
+
   }
 
   request(config) {

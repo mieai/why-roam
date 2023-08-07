@@ -8,7 +8,7 @@
     />
 
     <van-tabs v-model:active="activeName" color="#fc7b5b">
-      <template v-for="(value, key) in allCities.data" :key="key">
+      <template v-for="(value, key) in allCities" :key="key">
         <van-tab :name="key" :title="value.title">
           <div class="content">
             <CityGorup :citiesGroup="value"></CityGorup>

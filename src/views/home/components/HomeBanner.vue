@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <van-swipe autoplay="1500" style="height: 180px">
+    <van-swipe autoplay="3000" style="height: 210px">
       <template v-for="i in 5" :key="i">
         <van-swipe-item>
           <img :src="assetsImage(`/home/banner${i}.webp`)" alt="" />

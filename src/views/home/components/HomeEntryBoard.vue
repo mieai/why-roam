@@ -3,63 +3,61 @@
     <!-- 城市选择 -->
     <LocationArea />
 
-    <div class="date-range section" @click="showPickDate = true">
-      <div class="start-date">
-        <span class="sub-title">入住</span>
-        <span class="time">{{ startDate }}</span>
-      </div>
-      <div class="stay-day">共{{ stayDay }}晚</div>
-      <div class="end-date">
-        <span class="sub-title">离店</span>
-        <span class="time">{{ endDate }}</span>
-      </div>
+    <DateRangePick v-model:dates="dates" />
+
+    <div class="price-counter block">
+      <div class="start">价格不限</div>
+      <div class="end">人数不限</div>
     </div>
 
-    <van-calendar
-      color="#fc7b5b"
-      v-model:show="showPickDate"
-      type="range"
-      @confirm="onConfirm"
-      :formatter="formatter"
-    />
+    <div class="keywords">关键字/位置/民宿名</div>
+
+    <div class="hot-suggests block">
+      <template v-for="item in hotSuggests" :key="item.tagLink">
+        <div
+          class="item"
+          :style="{
+            color: item.tagText.color,
+            background: item.tagText.background.color,
+          }"
+        >
+          {{ item.tagText.text }}
+        </div>
+      </template>
+    </div>
+
+    <div class="search-btn" @click="onSearchPage">搜索</div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import useHomeStore from "@/stores/home";
+
+import DateRangePick from "./DateRangePick.vue";
 import LocationArea from "./LocationArea.vue";
+import { storeToRefs } from "pinia";
 
-import { formatMonthDay, getDayDurtion } from "@/utils/format_date";
-import { numberToChinese } from "@/utils/format_string";
+const router = useRouter();
 
-const nowDate = new Date();
+const homeStore = useHomeStore();
 
-const startDate = ref(formatMonthDay(nowDate));
+// 获取home页面中的数据
+homeStore.getHomeHotSuggests();
 
-// 根据开始时间，获取明天不修改nowDate对象
-const featDay = new Date(+nowDate).setDate(nowDate.getDate() + 1);
+const { hotSuggests } = storeToRefs(homeStore);
+const dates = ref({});
 
-const endDate = ref(formatMonthDay(featDay));
+console.log(dates.value);
 
-const showPickDate = ref(false);
-
-const stayDay = ref(numberToChinese(getDayDurtion(nowDate, featDay)));
-
-const formatter = (day) => {
-  if (day.type === "start") {
-    day.bottomInfo = "入住";
-  } else if (day.type === "end") {
-    day.bottomInfo = "离店";
-  }
-  return day;
-};
-
-const onConfirm = (dates) => {
-  startDate.value = formatMonthDay(dates[0]);
-  endDate.value = formatMonthDay(dates[1]);
-  stayDay.value = numberToChinese(getDayDurtion(...dates));
-
-  showPickDate.value = false;
+const onSearchPage = () => {
+  router.push({
+    path: "/search",
+    query: {
+      ...dates.value,
+    },
+  });
 };
 </script>
 
@@ -67,40 +65,43 @@ const onConfirm = (dates) => {
 .entry-board {
   padding: 12px;
 
-  .date-range {
-    height: 44px;
-
-    .stay-day {
-      flex: 1;
-      text-align: center;
-      font-size: 14px;
-      color: #666;
-    }
-  }
-
-  .section {
+  .block {
     display: flex;
     align-items: center;
-
-    padding: 8px 12px;
+    justify-content: space-between;
+  }
+  .price-counter {
+    color: #999;
+    font-size: 14px;
+    padding: 12px;
   }
 
-  .start-date,
-  .end-date {
-    display: flex;
-    flex-direction: column;
+  .keywords {
+    text-align: center;
+  }
 
-    .sub-title {
+  .hot-suggests {
+    padding: 12px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+
+    .item {
+      padding: 6px;
+      border-radius: 6px;
+      margin: 3px;
+      background-color: #f4b8a5;
       font-size: 14px;
-      color: #999;
     }
-
-    .time {
-      margin-top: 3px;
-      color: #333;
-      font-size: 15px;
-      font-weight: 500;
-    }
+  }
+  .search-btn {
+    height: 38px;
+    line-height: 38px;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 20px;
+    color: #fff;
+    background-image: linear-gradient(90deg, #f4b8a5, var(--primary-color));
   }
 }
 </style>

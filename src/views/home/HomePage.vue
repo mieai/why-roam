@@ -6,6 +6,8 @@
     <HomeBanner />
 
     <HomeEntryBroad />
+
+    <CateSwiper></CateSwiper>
   </div>
 </template>
 
@@ -13,6 +15,7 @@
 import HomeNavbar from "./components/HomeNavbar.vue";
 import HomeBanner from "./components/HomeBanner.vue";
 import HomeEntryBroad from "./components/HomeEntryBoard.vue";
+import CateSwiper from "./components/CateSwiper.vue";
 </script>
 
 <style lang="less" scoped></style>
