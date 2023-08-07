@@ -10,8 +10,7 @@ class TRequest {
 
     this._instance.interceptors.response.use((response) => {
       return response.data;
-    })
-
+    });
   }
 
   request(config) {
