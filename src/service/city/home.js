@@ -9,3 +9,12 @@ export function getHotSuggests() {
 export function getCategories() {
   return T.get("/home/categories");
 }
+
+// 获取首页房源列表数据
+export function getHouseList(page) {
+  return T.get('/home/houselist', {
+    params: {
+      page
+    }
+  });
+}

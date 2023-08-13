@@ -14,10 +14,11 @@
   justify-content: center;
   width: 100%;
   border-bottom: 1px solid rgba(118, 130, 182, 0.15);
+  background: rgba(205, 168, 99, 0.82);
 
   .title {
     font-size: 17px;
-    color: var(--primary-color);
+    color: #fff;
   }
 }
 </style>

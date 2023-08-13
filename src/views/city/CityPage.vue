@@ -26,7 +26,7 @@ import { storeToRefs } from "pinia";
 
 import useCityStore from "@/stores/city";
 
-import CityGorup from "./compoents/CityGorup.vue";
+import CityGorup from "./components/CityGorup.vue";
 
 const router = useRouter();
 const cityStore = useCityStore();

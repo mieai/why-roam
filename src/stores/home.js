@@ -1,11 +1,13 @@
 import { defineStore } from "pinia";
-import { getCategories, getHotSuggests } from "../service/city/home";
+import { getCategories, getHotSuggests, getHouseList } from "../service/city/home";
 
 const useHomeStore = defineStore("home", {
   state() {
     return {
       hotSuggests: [],
       categories: [],
+      currentPage: 1,
+      houseList: [],
     };
   },
   actions: {
@@ -19,6 +21,11 @@ const useHomeStore = defineStore("home", {
         this.categories = res.data;
       });
     },
+    getHomeHouseList() {
+      getHouseList(this.currentPage++).then(res => {
+        this.houseList.push(...res.data);
+      })
+    }
   },
 });
 
