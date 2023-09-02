@@ -14,7 +14,7 @@ import { storeToRefs } from "pinia";
 
 import useHomeStore from "@/stores/home";
 const homeStore = useHomeStore();
-homeStore.getHomeCategories();
+
 
 const { categories } = storeToRefs(homeStore);
 </script>

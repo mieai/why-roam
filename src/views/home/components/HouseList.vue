@@ -20,18 +20,14 @@
 <script setup>
 import { storeToRefs } from "pinia";
 
-import { ListItemT3, ListItemT9 } from "@/components/list-item-type/";
-
 import useHomeStore from "@/stores/home";
 
+import { ListItemT3, ListItemT9 } from "@/components/list-item-type/";
+
+
 const homeStore = useHomeStore();
-homeStore.getHomeHouseList();
 
 const { houseList } = storeToRefs(homeStore);
-
-const loadMore = () => {
-  homeStore.getHomeHouseList();
-};
 </script>
 
 <style lang="less" scoped>

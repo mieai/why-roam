@@ -43,8 +43,7 @@ const router = useRouter();
 
 const homeStore = useHomeStore();
 
-// 获取home页面中的数据
-homeStore.getHomeHotSuggests();
+
 
 const { hotSuggests } = storeToRefs(homeStore);
 const dates = ref({});
