@@ -1,6 +1,13 @@
 import { BASE_URL, TIME_OUT } from "../../config/env";
 
 import axios from "axios";
+import store from '@/stores';
+import useTStore from "@/stores/app"
+
+import '@/stores/app';
+
+
+const TStore = useTStore(store);
 class TRequest {
   constructor(BASE_URL, TIME_OUT) {
     this._instance = axios.create({
@@ -8,8 +15,18 @@ class TRequest {
       timeout: TIME_OUT,
     });
 
+
+    this._instance.interceptors.request.use((config) => {
+      TStore.loading = true;
+      return config;
+    })
+
     this._instance.interceptors.response.use((response) => {
+      TStore.loading = false;
       return response.data;
+    }, (error) => {
+      TStore.loading = false;
+      return error;
     });
   }
 

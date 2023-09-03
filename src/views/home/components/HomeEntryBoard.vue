@@ -3,7 +3,7 @@
     <!-- 城市选择 -->
     <LocationArea />
 
-    <DateRangePick v-model:dates="dates" />
+    <DateRangePick />
 
     <div class="price-counter block">
       <div class="start">价格不限</div>
@@ -31,7 +31,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import { useRouter } from "vue-router";
 import useHomeStore from "@/stores/home";
 
@@ -43,19 +42,11 @@ const router = useRouter();
 
 const homeStore = useHomeStore();
 
-
-
 const { hotSuggests } = storeToRefs(homeStore);
-const dates = ref({});
-
-console.log(dates.value);
 
 const onSearchPage = () => {
   router.push({
     path: "/search",
-    query: {
-      ...dates.value,
-    },
   });
 };
 </script>

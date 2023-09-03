@@ -2,12 +2,12 @@
   <div class="date-range section" @click="showPickDate = true">
     <div class="start-date">
       <span class="sub-title">入住</span>
-      <span class="time">{{ startDate }}</span>
+      <span class="time">{{ zhStartDate }}</span>
     </div>
     <div class="stay-day">共{{ numberToChinese(stayDay) }}晚</div>
     <div class="end-date">
       <span class="sub-title">离店</span>
-      <span class="time">{{ endDate }}</span>
+      <span class="time">{{ zhEndDate }}</span>
     </div>
   </div>
   <van-calendar
@@ -21,38 +21,22 @@
 
 <script setup>
 import { ref } from "vue";
+
 import { formatMonthDay, getDayDurtion } from "@/utils/format_date";
 import { numberToChinese } from "@/utils/format_string";
-import { watchEffect } from "vue";
 
-defineProps({
-  dates: Object,
-});
+import useTStore from "@/stores/app";
+import { computed } from "vue";
 
-const emit = defineEmits(["update:dates"]);
+let entry = useTStore().entry;
 
-const nowDate = new Date();
+const zhStartDate = computed(() => formatMonthDay(entry.startDate));
 
-const startDate = ref(formatMonthDay(nowDate));
+const zhEndDate = computed(() => formatMonthDay(entry.endDate));
 
-// 根据开始时间，获取明天不修改nowDate对象
-const featDay = new Date(+nowDate).setDate(nowDate.getDate() + 1);
-
-const endDate = ref(formatMonthDay(featDay));
+const stayDay = entry.stayDay;
 
 const showPickDate = ref(false);
-
-const stayDay = ref(getDayDurtion(nowDate, featDay));
-
-watchEffect(() => {
-  let model = {
-    startDate,
-    endDate,
-    stayDay,
-  };
-
-  emit("update:dates", model);
-});
 
 const formatter = (day) => {
   if (day.type === "start") {
@@ -64,9 +48,9 @@ const formatter = (day) => {
 };
 
 const onConfirm = (dates) => {
-  startDate.value = formatMonthDay(dates[0]);
-  endDate.value = formatMonthDay(dates[1]);
-  stayDay.value = getDayDurtion(...dates);
+  entry.startDate = dates[0];
+  entry.endDate = dates[1];
+  entry.stayDay = getDayDurtion(...dates);
 
   showPickDate.value = false;
 };

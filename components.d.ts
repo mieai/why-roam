@@ -13,6 +13,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     TabBar: typeof import('./src/components/tabbar/TabBar.vue')['default']
     TabBar2: typeof import('./src/components/TabBar2.vue')['default']
+    TLoading: typeof import('./src/components/loading/TLoading.vue')['default']
     VanButton: typeof import("vant/es")["Button"]
     VanCalendar: typeof import('vant/es')['Calendar']
     VanCell: typeof import("vant/es")["Cell"]

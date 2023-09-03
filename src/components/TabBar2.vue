@@ -23,7 +23,7 @@ import { ref } from "vue";
 import tabbarConfig from "./tabbar-config";
 import { useRouter } from "vue-router";
 
-import assetsImage from "@/utils/assetsImage.js";
+import assetsImage from "@/utils/assets_image.js";
 
 const activeIndex = ref(0);
 

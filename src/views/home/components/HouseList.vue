@@ -13,7 +13,6 @@
         ></ListItemT9>
       </template>
     </div>
-    <button @click="loadMore">more</button>
   </div>
 </template>
 
@@ -23,7 +22,6 @@ import { storeToRefs } from "pinia";
 import useHomeStore from "@/stores/home";
 
 import { ListItemT3, ListItemT9 } from "@/components/list-item-type/";
-
 
 const homeStore = useHomeStore();
 

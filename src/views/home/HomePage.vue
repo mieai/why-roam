@@ -9,11 +9,9 @@
 
     <CateSwiper />
 
-    <div v-if="isAffix">我是超过100px后显示的</div>
-
+    <AffixSearchBar v-if="isAffix"></AffixSearchBar>
 
     <HouseList />
-
   </div>
 </template>
 
@@ -26,6 +24,7 @@ import HomeBanner from "./components/HomeBanner.vue";
 import HomeEntryBroad from "./components/HomeEntryBoard.vue";
 import CateSwiper from "./components/CateSwiper.vue";
 import HouseList from "./components/HouseList.vue";
+import AffixSearchBar from "./components/AffixSearchBar.vue";
 
 import { useScroll } from '@/hooks/useScroll.js';
 
@@ -45,7 +44,7 @@ watch(isReachBottom,(newValue)=>{
   }
 })
 
-const isAffix = computed(()=>scrollTop > 120);
+const isAffix = computed(()=>scrollTop.value > 120);
 
 // 获取home页面中的数据
 homeStore.getHomeCategories();
