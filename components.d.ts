@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    CTabbar: typeof import('./src/components/ct-tabbar/CTabbar.vue')['default']
     ListItemT3: typeof import('./src/components/list-item-type/ListItemT3.vue')['default']
     ListItemT9: typeof import('./src/components/list-item-type/ListItemT9.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
@@ -21,6 +22,7 @@ declare module 'vue' {
     VanImage: typeof import("vant/es")["Image"]
     VanIndexAnchor: typeof import("vant/es")["IndexAnchor"]
     VanIndexBar: typeof import("vant/es")["IndexBar"]
+    VanNavBar: typeof import('vant/es')['NavBar']
     VanRate: typeof import('vant/es')['Rate']
     VanSearch: typeof import("vant/es")["Search"]
     VanSwipe: typeof import('vant/es')['Swipe']

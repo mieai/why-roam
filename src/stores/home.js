@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { getCategories, getHotSuggests, getHouseList } from "../service/city/home";
+import { getCategories, getHotSuggests, getHouseList } from "../service/home";
 
 const useHomeStore = defineStore("home", {
   state() {

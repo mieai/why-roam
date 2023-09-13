@@ -19,12 +19,27 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRoute } from "vue-router";
 
 import tabbarConfig from "./tabbar-config";
 
 import assetsImage from "@/utils/assets_image.js";
+import { watch } from "vue";
 
 const activeIndex = ref(0);
+
+const route = useRoute();
+
+watch(route, (newRoute) => {
+  let findTabIndex = tabbarConfig.findIndex(
+    (item) => item.path == newRoute.path
+  );
+  if (findTabIndex != -1) {
+    activeIndex.value = findTabIndex;
+  }
+});
+
+// fix later change router -> index
 </script>
 
 <style lang="less" scoped>

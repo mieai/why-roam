@@ -43,6 +43,14 @@ const router = createRouter({
         hideTabbar: true,
       },
     },
+    {
+      path: "/detail/:id",
+      name: "detail",
+      component: () => import("../views/detail/HomeDetailPage.vue"),
+      mata: {
+        hideTabbar: true,
+      },
+    },
   ],
 });
 

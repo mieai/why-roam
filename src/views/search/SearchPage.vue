@@ -1,10 +1,12 @@
 <template>
   <div>search</div>
-  <div>{{ $route.query.startDate }}</div>
-  <div>{{ $route.query.endDate }}</div>
-  <div>{{ $route.query.stayDay }}</div>
+  <div>{{ TStore.entry }}</div>
 </template>
 
-<script setup></script>
+<script setup>
+import useTStore from "@/stores/app";
+
+const TStore = useTStore();
+</script>
 
 <style lang="less" scoped></style>
