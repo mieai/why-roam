@@ -18,26 +18,24 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRoute } from "vue-router";
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
 
-import tabbarConfig from "./tabbar-config";
+import tabbarConfig from './tabbar-config'
 
-import assetsImage from "@/utils/assets_image.js";
-import { watch } from "vue";
+import assetsImage from '@/utils/assets_image.js'
+import { watchEffect } from 'vue'
 
-const activeIndex = ref(0);
+const activeIndex = ref(0)
 
-const route = useRoute();
+const route = useRoute()
 
-watch(route, (newRoute) => {
-  let findTabIndex = tabbarConfig.findIndex(
-    (item) => item.path == newRoute.path
-  );
+watchEffect(() => {
+  let findTabIndex = tabbarConfig.findIndex((item) => item.path == route.path)
   if (findTabIndex != -1) {
-    activeIndex.value = findTabIndex;
+    activeIndex.value = findTabIndex
   }
-});
+})
 
 // fix later change router -> index
 </script>

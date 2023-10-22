@@ -21,30 +21,29 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useRouter } from "vue-router";
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 
-import useCityStore from "@/stores/city";
+import useCityStore from '@/stores/city'
 
-const router = useRouter();
+const router = useRouter()
 
 const props = defineProps({
-  citiesGroup: Object,
-});
+  citiesGroup: Object
+})
 
-const cityStore = useCityStore();
+const cityStore = useCityStore()
 
 const changeCity = (city) => {
-  cityStore.currentCity = city;
-  console.log(cityStore.currentCity);
-  router.back();
-};
+  cityStore.currentCity = city
+  router.back()
+}
 
 const indexList = computed(() => {
-  let list = props.citiesGroup.cities.map((city) => city.group);
-  list.unshift("#");
-  return list;
-});
+  let list = props.citiesGroup.cities.map((city) => city.group)
+  list.unshift('#')
+  return list
+})
 </script>
 
 <style lang="less" scoped>

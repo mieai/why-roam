@@ -26,6 +26,9 @@ const router = createRouter({
       path: "/message",
       name: "message",
       component: () => import("../views/message/MessagePage.vue"),
+      meta: {
+        hideTabbar: true
+      }
     },
     {
       path: "/city",
@@ -39,7 +42,7 @@ const router = createRouter({
       path: "/search",
       name: "search",
       component: () => import("../views/search/SearchPage.vue"),
-      mata: {
+      meta: {
         hideTabbar: true,
       },
     },
@@ -47,7 +50,7 @@ const router = createRouter({
       path: "/detail/:id",
       name: "detail",
       component: () => import("../views/detail/HomeDetailPage.vue"),
-      mata: {
+      meta: {
         hideTabbar: true,
       },
     },

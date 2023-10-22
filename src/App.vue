@@ -1,20 +1,24 @@
 <script setup>
-import { useRoute } from "vue-router";
-import { RouterView } from "vue-router";
+import { useRoute } from 'vue-router'
+import { RouterView } from 'vue-router'
 
-import useTStore from "@/stores/app";
+import useTStore from '@/stores/app'
 
-import TabBar from "./components/tabbar/TabBar.vue";
+import TabBar from './components/tabbar/TabBar.vue'
 
-import TLoading from "./components/loading/TLoading.vue";
+import TLoading from './components/loading/TLoading.vue'
 
-const route = useRoute();
+const route = useRoute()
 
-const TStore = useTStore();
+const TStore = useTStore()
 </script>
 
 <template>
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <KeepAlive include="HomePage">
+      <component :is="Component"></component>
+    </KeepAlive>
+  </RouterView>
 
   <TabBar v-if="!route.meta.hideTabbar" />
 

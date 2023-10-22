@@ -23,7 +23,8 @@ const useHomeStore = defineStore("home", {
     },
     getHomeHouseList() {
       return getHouseList(this.currentPage++).then(res => {
-        this.houseList.push(...res.data);
+        let data = res.data || []
+        this.houseList.push(...data);
       })
     }
   },
