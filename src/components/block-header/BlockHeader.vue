@@ -18,9 +18,9 @@ defineProps({
   title: String,
   moreText: {
     type: String,
-    default: "",
-  },
-});
+    default: ''
+  }
+})
 </script>
 
 <style lang="less" scoped>

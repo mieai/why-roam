@@ -5,32 +5,32 @@
 </template>
 
 <script setup>
-import BlockHeader from "@/components/block-header/BlockHeader.vue";
-import { onMounted, ref } from "vue";
+import BlockHeader from '@/components/block-header/BlockHeader.vue'
+import { onMounted, ref } from 'vue'
 
 const props = defineProps({
   position: {
     type: Object,
-    default: () => ({}),
-  },
-});
-const bMapRef = ref();
+    default: () => ({})
+  }
+})
+const bMapRef = ref()
 
 onMounted(() => {
   // 1.创建地图实例
-  const map = new BMapGL.Map(bMapRef.value);
+  const map = new BMapGL.Map(bMapRef.value)
 
-  let { longitude, latitude } = props.position;
+  let { longitude, latitude } = props.position
   // 2.创建坐标
-  const point = new BMapGL.Point(longitude, latitude);
+  const point = new BMapGL.Point(longitude, latitude)
 
   // 3.设置中心点与缩放
-  map.centerAndZoom(point, 12);
+  map.centerAndZoom(point, 12)
 
-  const marker = new BMapGL.Marker(point);
+  const marker = new BMapGL.Marker(point)
 
-  map.addOverlay(marker);
-});
+  map.addOverlay(marker)
+})
 </script>
 
 <style lang="less" scoped>

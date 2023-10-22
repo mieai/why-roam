@@ -1,6 +1,6 @@
 :root {
   --primary-color: #fe6931;
-  --accent-color:#fc7b5b;
+  --accent-color: #fc7b5b;
 
   /* vant样式覆盖 */
   --van-primary-color: var(--primary-color);

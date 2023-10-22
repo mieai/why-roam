@@ -26,9 +26,9 @@
 defineProps({
   itemData: {
     type: Object,
-    default: () => ({}),
-  },
-});
+    default: () => ({})
+  }
+})
 </script>
 
 <style lang="less" scoped>

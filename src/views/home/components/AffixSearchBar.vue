@@ -4,11 +4,11 @@
       <div class="entry">
         <div class="flex-ly start-date">
           <div class="text">住</div>
-          <div class="date">{{ formatMonthDay(entry.startDate, "MM.DD") }}</div>
+          <div class="date">{{ formatMonthDay(entry.startDate, 'MM.DD') }}</div>
         </div>
         <div class="flex-ly end-date">
           <div class="text">离</div>
-          <div class="date">{{ formatMonthDay(entry.endDate, "MM.DD") }}</div>
+          <div class="date">{{ formatMonthDay(entry.endDate, 'MM.DD') }}</div>
         </div>
       </div>
       <div class="search-input">
@@ -22,10 +22,10 @@
 </template>
 
 <script setup>
-import useTStore from "@/stores/app";
-import { formatMonthDay } from "@/utils/format_date";
+import useTStore from '@/stores/app'
+import { formatMonthDay } from '@/utils/format_date'
 
-const entry = useTStore().entry;
+const entry = useTStore().entry
 </script>
 
 <style lang="less" scoped>
@@ -70,7 +70,7 @@ const entry = useTStore().entry;
     }
 
     .end-date .date::after {
-      content: " ";
+      content: ' ';
       width: 0;
       height: 0;
       border: 4px solid #666;
@@ -101,7 +101,7 @@ const entry = useTStore().entry;
     width: 20px;
     height: 20px;
     display: inline-block;
-    background-image: url("@/assets/img/home/home-sprite.png");
+    background-image: url('@/assets/img/home/home-sprite.png');
     background-position: -29px -151px;
     background-size: 207px 192px;
   }

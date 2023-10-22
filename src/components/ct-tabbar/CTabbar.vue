@@ -18,22 +18,22 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue'
 
-import tabbarConfig from "./tabbar-config";
-import { useRouter } from "vue-router";
+import tabbarConfig from './tabbar-config'
+import { useRouter } from 'vue-router'
 
-import assetsImage from "@/utils/assets_image.js";
+import assetsImage from '@/utils/assets_image.js'
 
-const activeIndex = ref(0);
+const activeIndex = ref(0)
 
-const router = useRouter();
+const router = useRouter()
 
 const indexClick = (index, item) => {
-  activeIndex.value = index;
+  activeIndex.value = index
 
-  router.push(item.path);
-};
+  router.push(item.path)
+}
 </script>
 
 <style lang="less" scoped>

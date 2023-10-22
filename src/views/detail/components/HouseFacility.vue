@@ -22,19 +22,19 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import BlockHeader from "@/components/block-header/BlockHeader.vue";
+import { computed } from 'vue'
+import BlockHeader from '@/components/block-header/BlockHeader.vue'
 const props = defineProps({
   houseFacility: {
     type: Object,
-    default: () => ({}),
-  },
-});
+    default: () => ({})
+  }
+})
 
 const sortFacility = computed(() => {
-  const { houseFacilitys, facilitySort } = props.houseFacility;
+  const { houseFacilitys, facilitySort } = props.houseFacility
 
-  if (!facilitySort) return [];
+  if (!facilitySort) return []
   // let sortedFacility = [];
   // for (const groupId of facilitySort) {
   //   let append = houseFacilitys.find((item) => item.groupId == groupId);
@@ -44,13 +44,10 @@ const sortFacility = computed(() => {
   // }
   let sortedFacility = houseFacilitys
     .filter((item) => facilitySort.includes(item.groupId))
-    .sort(
-      (a, b) =>
-        facilitySort.indexOf(a.groupId) - facilitySort.includes(b.groupId)
-    );
+    .sort((a, b) => facilitySort.indexOf(a.groupId) - facilitySort.includes(b.groupId))
 
-  return sortedFacility;
-});
+  return sortedFacility
+})
 </script>
 
 <style lang="less" scoped>

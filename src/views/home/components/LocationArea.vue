@@ -1,7 +1,7 @@
 <template>
   <div class="area">
     <div class="city" @click="jumpToCity">
-      {{ currentCity.cityName || "定位城市" }}
+      {{ currentCity.cityName || '定位城市' }}
     </div>
     <div class="location" @click="getLocation">
       <span>我的位置</span>
@@ -11,29 +11,29 @@
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router'
 
-import useCityStore from "@/stores/city";
-import { storeToRefs } from "pinia";
+import useCityStore from '@/stores/city'
+import { storeToRefs } from 'pinia'
 
-const router = useRouter();
+const router = useRouter()
 
-const cityStore = useCityStore();
+const cityStore = useCityStore()
 
-const { currentCity } = storeToRefs(cityStore);
+const { currentCity } = storeToRefs(cityStore)
 
 const getLocation = () => {
   navigator.geolocation.getCurrentPosition(
     (info) => {
-      console.log(info);
+      console.log(info)
     },
     () => {}
-  );
-};
+  )
+}
 
 const jumpToCity = () => {
-  router.push("/city");
-};
+  router.push('/city')
+}
 </script>
 
 <style lang="less" scoped>

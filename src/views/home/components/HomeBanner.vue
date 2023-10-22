@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import assetsImage from "@/utils/assets_image";
+import assetsImage from '@/utils/assets_image'
 </script>
 
 <style lang="less" scoped>

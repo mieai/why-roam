@@ -19,21 +19,21 @@
 </template>
 
 <script setup>
-import { storeToRefs } from "pinia";
+import { storeToRefs } from 'pinia'
 
-import useHomeStore from "@/stores/home";
+import useHomeStore from '@/stores/home'
 
-import { ListItemT3, ListItemT9 } from "@/components/list-item-type/";
-import { useRouter } from "vue-router";
+import { ListItemT3, ListItemT9 } from '@/components/list-item-type/'
+import { useRouter } from 'vue-router'
 
-const homeStore = useHomeStore();
+const homeStore = useHomeStore()
 
-const { houseList } = storeToRefs(homeStore);
+const { houseList } = storeToRefs(homeStore)
 
-const router = useRouter();
+const router = useRouter()
 const jumpToDetail = (item) => {
-  router.push("/detail/" + item.houseId);
-};
+  router.push('/detail/' + item.houseId)
+}
 </script>
 
 <style lang="less" scoped>

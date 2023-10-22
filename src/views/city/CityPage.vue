@@ -20,27 +20,27 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-import { storeToRefs } from "pinia";
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
 
-import useCityStore from "@/stores/city";
+import useCityStore from '@/stores/city'
 
-import CityGorup from "./components/CityGorup.vue";
+import CityGorup from './components/CityGorup.vue'
 
-const router = useRouter();
-const cityStore = useCityStore();
+const router = useRouter()
+const cityStore = useCityStore()
 
-const searchValue = ref("");
-const activeName = ref();
+const searchValue = ref('')
+const activeName = ref()
 
 const onCancel = () => {
-  router.back();
-};
+  router.back()
+}
 
-cityStore.getCitiesAction();
+cityStore.getCitiesAction()
 
-const { allCities } = storeToRefs(cityStore);
+const { allCities } = storeToRefs(cityStore)
 </script>
 
 <style lang="less" scoped>

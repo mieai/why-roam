@@ -18,7 +18,7 @@
           class="item"
           :style="{
             color: item.tagText.color,
-            background: item.tagText.background.color,
+            background: item.tagText.background.color
           }"
         >
           {{ item.tagText.text }}
@@ -31,24 +31,24 @@
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
-import useHomeStore from "@/stores/home";
+import { useRouter } from 'vue-router'
+import useHomeStore from '@/stores/home'
 
-import DateRangePick from "./DateRangePick.vue";
-import LocationArea from "./LocationArea.vue";
-import { storeToRefs } from "pinia";
+import DateRangePick from './DateRangePick.vue'
+import LocationArea from './LocationArea.vue'
+import { storeToRefs } from 'pinia'
 
-const router = useRouter();
+const router = useRouter()
 
-const homeStore = useHomeStore();
+const homeStore = useHomeStore()
 
-const { hotSuggests } = storeToRefs(homeStore);
+const { hotSuggests } = storeToRefs(homeStore)
 
 const onSearchPage = () => {
   router.push({
-    path: "/search",
-  });
-};
+    path: '/search'
+  })
+}
 </script>
 
 <style lang="less" scoped>

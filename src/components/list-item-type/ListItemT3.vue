@@ -17,11 +17,7 @@
         <div class="price">
           <div class="new-price">¥{{ itemData.finalPrice }}</div>
           <div class="old-price">¥{{ itemData.productPrice }}</div>
-          <div
-            class="tip-text"
-            v-if="itemData.priceTipBadge"
-            :style="badgeBgStyle"
-          >
+          <div class="tip-text" v-if="itemData.priceTipBadge" :style="badgeBgStyle">
             {{ itemData.priceTipBadge.text }}
           </div>
         </div>
@@ -31,28 +27,27 @@
 </template>
 
 <script setup>
-import { computed, toRefs } from "vue";
+import { computed, toRefs } from 'vue'
 
 const props = defineProps({
   itemData: {
     type: Object,
-    default: () => ({}),
-  },
-});
+    default: () => ({})
+  }
+})
 
-let { priceTipBadge } = toRefs(props.itemData);
+let { priceTipBadge } = toRefs(props.itemData)
 let badgeBgStyle = computed(() => {
-  if (!priceTipBadge.value) return { color: "red" };
+  if (!priceTipBadge.value) return { color: 'red' }
 
-  let { startColor, endColor, background, color } =
-    priceTipBadge.value.gradient;
+  let { startColor, endColor, background, color } = priceTipBadge.value.gradient
 
   return {
-    "background-color": background,
-    "background-image": `linear-gradient(270deg,${startColor},${endColor})`,
-    color: color,
-  };
-});
+    'background-color': background,
+    'background-image': `linear-gradient(270deg,${startColor},${endColor})`,
+    color: color
+  }
+})
 </script>
 
 <style lang="less" scoped>

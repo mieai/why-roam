@@ -8,8 +8,8 @@
 <script setup>
 defineProps({
   content: Object,
-  default: () => ({}),
-});
+  default: () => ({})
+})
 </script>
 
 <style lang="less" scoped>

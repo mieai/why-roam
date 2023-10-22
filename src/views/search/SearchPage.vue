@@ -4,9 +4,9 @@
 </template>
 
 <script setup>
-import useTStore from "@/stores/app";
+import useTStore from '@/stores/app'
 
-const TStore = useTStore();
+const TStore = useTStore()
 </script>
 
 <style lang="less" scoped></style>

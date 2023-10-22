@@ -1,6 +1,6 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
-import { getHouseDetail } from "../service/detail/detail";
+import { getHouseDetail } from '../service/detail/detail'
 const useDetailStore = defineStore('detail', {
   state() {
     return {
@@ -9,11 +9,11 @@ const useDetailStore = defineStore('detail', {
   },
   actions: {
     getDetailByHouseId(houseId) {
-      getHouseDetail(houseId).then(res => {
-        this.houseDetail = res.data;
+      getHouseDetail(houseId).then((res) => {
+        this.houseDetail = res.data
       })
     }
   }
 })
 
-export default useDetailStore;
+export default useDetailStore

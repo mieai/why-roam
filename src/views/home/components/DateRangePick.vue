@@ -20,40 +20,40 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue'
 
-import { formatMonthDay, getDayDurtion } from "@/utils/format_date";
-import { numberToChinese } from "@/utils/format_string";
+import { formatMonthDay, getDayDurtion } from '@/utils/format_date'
+import { numberToChinese } from '@/utils/format_string'
 
-import useTStore from "@/stores/app";
-import { computed } from "vue";
+import useTStore from '@/stores/app'
+import { computed } from 'vue'
 
-let entry = useTStore().entry;
+let entry = useTStore().entry
 
-const zhStartDate = computed(() => formatMonthDay(entry.startDate));
+const zhStartDate = computed(() => formatMonthDay(entry.startDate))
 
-const zhEndDate = computed(() => formatMonthDay(entry.endDate));
+const zhEndDate = computed(() => formatMonthDay(entry.endDate))
 
-const stayDay = entry.stayDay;
+const stayDay = entry.stayDay
 
-const showPickDate = ref(false);
+const showPickDate = ref(false)
 
 const formatter = (day) => {
-  if (day.type === "start") {
-    day.bottomInfo = "入住";
-  } else if (day.type === "end") {
-    day.bottomInfo = "离店";
+  if (day.type === 'start') {
+    day.bottomInfo = '入住'
+  } else if (day.type === 'end') {
+    day.bottomInfo = '离店'
   }
-  return day;
-};
+  return day
+}
 
 const onConfirm = (dates) => {
-  entry.startDate = dates[0];
-  entry.endDate = dates[1];
-  entry.stayDay = getDayDurtion(...dates);
+  entry.startDate = dates[0]
+  entry.endDate = dates[1]
+  entry.stayDay = getDayDurtion(...dates)
 
-  showPickDate.value = false;
-};
+  showPickDate.value = false
+}
 </script>
 
 <style lang="less" scoped>

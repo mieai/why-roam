@@ -1,11 +1,10 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
+import { getDayDurtion } from '@/utils/format_date'
 
-import { getDayDurtion } from "@/utils/format_date";
-
-const nowDate = new Date();
+const nowDate = new Date()
 // 根据开始时间，获取明天不修改nowDate对象
-const featDay = new Date(+nowDate);
+const featDay = new Date(+nowDate)
 featDay.setDate(nowDate.getDate() + 1)
 
 const stayDay = getDayDurtion(nowDate, featDay)
@@ -23,4 +22,4 @@ const useTStore = defineStore('app', {
   }
 })
 
-export default useTStore;
+export default useTStore

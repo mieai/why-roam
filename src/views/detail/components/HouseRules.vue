@@ -13,12 +13,12 @@
 </template>
 
 <script setup>
-import BlockHeader from "@/components/block-header/BlockHeader.vue";
+import BlockHeader from '@/components/block-header/BlockHeader.vue'
 
 defineProps({
   orderRules: Array,
-  default: () => [],
-});
+  default: () => []
+})
 </script>
 
 <style lang="less" scoped>

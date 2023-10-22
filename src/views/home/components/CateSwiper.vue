@@ -10,13 +10,12 @@
 </template>
 
 <script setup>
-import { storeToRefs } from "pinia";
+import { storeToRefs } from 'pinia'
 
-import useHomeStore from "@/stores/home";
-const homeStore = useHomeStore();
+import useHomeStore from '@/stores/home'
+const homeStore = useHomeStore()
 
-
-const { categories } = storeToRefs(homeStore);
+const { categories } = storeToRefs(homeStore)
 </script>
 
 <style lang="less" scoped>
